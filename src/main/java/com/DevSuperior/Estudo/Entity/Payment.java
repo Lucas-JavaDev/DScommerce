@@ -22,6 +22,10 @@ public class Payment {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
 
+
+    // Relação com ORDER_ID, por conta do mapeamento
+    // O MapsId, mapea o Id da ORDer, tendo como o Id payment
+    // o Mesmo id da Order feita
     @OneToOne
     @MapsId
     private Order order;
