@@ -28,7 +28,7 @@ public class User {
     private String email;
 
     private String phone;
-    private LocalDate brthDate;
+    private LocalDate birthDate;
     private String password;
 
     @OneToMany(mappedBy = "client")
