@@ -18,12 +18,12 @@ import java.time.Instant;
 @AllArgsConstructor
 public class Order {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // Indica ao banco, configurando como default UTC, sem time zone.
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIMEZONE")
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment; // Indica o instante que o pedido foi realizado.
     private OrderStatus status;
 
@@ -31,4 +31,6 @@ public class Order {
     @JoinColumn(name = "client_id")
     private User client;
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 }
