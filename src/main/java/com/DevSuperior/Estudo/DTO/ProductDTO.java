@@ -1,5 +1,6 @@
 package com.DevSuperior.Estudo.DTO;
 
+import com.DevSuperior.Estudo.Entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,5 +15,14 @@ public class ProductDTO {
     private String description;
     private Double price;
     private String imgUrl;
+
+
+    public ProductDTO(Product product) {
+        this.id = product.getId();
+        this.name = product.getName();
+        this.description = product.getDescription();
+        this.price = product.getPrice();
+        this.imgUrl = product.getImgUrl();
+    }
 
 }
