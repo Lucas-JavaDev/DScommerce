@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8080/products?size=12
+method: GET
+queryParams:
+  size: "12"
+order: 155219235208075

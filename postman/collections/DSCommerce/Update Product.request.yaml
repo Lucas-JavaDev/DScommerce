@@ -1,0 +1,14 @@
+$kind: http-request
+name: Update Product
+url: http://localhost:8080/products/
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "name": "Novo Produto",
+        "description": "Produto muito divertido",
+        "imgUrl": "https://imagens.com.br/imagem.jpg",
+        "price": 200.0
+    }
+order: 376094408552075

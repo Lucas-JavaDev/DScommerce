@@ -1,0 +1,5 @@
+$kind: http-request
+name: Insert Product
+url: ""
+method: POST
+order: 1512560307533838
