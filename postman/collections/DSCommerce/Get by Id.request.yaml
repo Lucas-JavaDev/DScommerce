@@ -1,5 +1,5 @@
 $kind: http-request
 name: Get by Id
-url: http://localhost:8080/products/26
+url: http://localhost:8080/products/200
 method: GET
 order: 155219235208075

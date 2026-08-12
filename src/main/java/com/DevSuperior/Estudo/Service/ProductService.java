@@ -3,14 +3,16 @@ package com.DevSuperior.Estudo.Service;
 
 import com.DevSuperior.Estudo.DTO.ProductDTO;
 import com.DevSuperior.Estudo.Entity.Product;
+import com.DevSuperior.Estudo.Exception.DatabaseException;
+import com.DevSuperior.Estudo.Exception.ResourceNotFoundException;
 import com.DevSuperior.Estudo.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -20,16 +22,10 @@ public class ProductService {
 
     @Transactional(readOnly = true)  // Boa prática
     public ProductDTO findById(Long id) {
-        Optional<Product> opProduct = productRepository.findById(id);
-        Product product = opProduct.get();
-
-        return new ProductDTO(
-                product.getId(),
-                product.getName(),
-                product.getDescription(),
-                product.getPrice(),
-                product.getImgUrl()
+        Product product = productRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Resource not found")
         );
+        return new ProductDTO(product);
     }
 
     public Page<ProductDTO> findAll(Pageable pageable) {
@@ -48,16 +44,26 @@ public class ProductService {
 
     @Transactional
     public ProductDTO update(ProductDTO productDTO, Long id) {
-        Product product = productRepository.getReferenceById(id); // Não comunica diretamente com o Banco de Dados
+        Product product = productRepository.getReferenceById(id);
+        if(!productRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Recurso não encontrado");// Não comunica diretamente com o Banco de Dados
+        }
         copyDtoToEntity(productDTO, product);
         productRepository.save(product);
         return new ProductDTO(product);
     }
 
 
-    @Transactional
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
-        productRepository.deleteById(id);
+        if(!productRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
+        try {
+            productRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Integridade Violada");
+        }
     }
 
 

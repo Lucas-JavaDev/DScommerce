@@ -1,7 +1,7 @@
 $kind: http-request
 name: Get All
-url: http://localhost:8080/products?size=12
+url: http://localhost:8080/products?size=2
 method: GET
 queryParams:
-  size: "12"
+  size: "2"
 order: 1786325052799
