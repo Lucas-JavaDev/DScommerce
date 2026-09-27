@@ -32,5 +32,9 @@ public class Role implements GrantedAuthority {
     private Set<User> users = new HashSet<>();
 
 
+    @Override
+    public String getAuthority() {
+        return authority;
+    }
 
 }
