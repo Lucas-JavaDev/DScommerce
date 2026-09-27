@@ -1,0 +1,15 @@
+$kind: http-request
+name: Insert Client
+url: http://localhost:8080/clients
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "name": "No",
+        "cpf": "4444",
+        "income": 60,
+        "birthDate": "2027-05-15",
+        "children": 3
+    }
+order: 1786673530458

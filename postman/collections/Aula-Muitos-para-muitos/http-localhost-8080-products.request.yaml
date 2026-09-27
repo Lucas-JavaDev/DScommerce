@@ -1,0 +1,22 @@
+$kind: http-request
+name: http://localhost:8080/products
+description: ""
+url: http://localhost:8080/products
+method: POST
+body:
+  type: json
+  content: |-
+    
+    {
+        "name": "Produto novo",
+        "price": 1000.0,
+        "categories": [
+            {
+                "id": 2
+            },
+            {
+                "id": 3
+            }
+        ]
+    }
+order: 1787597117257

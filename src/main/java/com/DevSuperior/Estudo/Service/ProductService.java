@@ -20,6 +20,10 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+
+
+
+
     @Transactional(readOnly = true)  // Boa prática
     public ProductDTO findById(Long id) {
         Product product = productRepository.findById(id).orElseThrow(
@@ -28,8 +32,8 @@ public class ProductService {
         return new ProductDTO(product);
     }
 
-    public Page<ProductDTO> findAll(Pageable pageable) {
-        Page<Product> products = productRepository.findAll(pageable);
+    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+        Page<Product> products = productRepository.searchByName(name, pageable);
         return products.map(product -> new ProductDTO(product));
     }
 

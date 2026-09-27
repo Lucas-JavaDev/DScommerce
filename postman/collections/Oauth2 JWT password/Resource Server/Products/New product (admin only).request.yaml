@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{rshost}}/products"
+method: POST
+body:
+  type: json
+  content: "{\r\n    \"name\": \"Tablet\"\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 3000

@@ -1,0 +1,5 @@
+$kind: http-request
+name: By Id
+url: http://localhost:8080/clients/11
+method: GET
+order: 3283694511763831

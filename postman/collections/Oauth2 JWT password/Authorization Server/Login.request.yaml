@@ -1,0 +1,31 @@
+$kind: http-request
+url: "{{ashost}}/oauth2/token"
+method: POST
+body:
+  type: urlencoded
+  content:
+    - key: username
+      value: "{{username}}"
+    - key: password
+      value: "{{password}}"
+    - key: grant_type
+      value: password
+    - key: ""
+      value: ""
+      disabled: true
+auth:
+  type: basic
+  credentials:
+    username: "{{client-id}}"
+    password: "{{client-secret}}"
+scripts:
+  - type: afterResponse
+    code: "if (responseCode.code >= 200 && responseCode.code < 300) {\r
+
+      \   var json = JSON.parse(responseBody);\r
+
+      \   postman.setEnvironmentVariable('token', json.access_token);\r
+
+      } "
+    language: text/javascript
+order: 1000

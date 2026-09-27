@@ -1,7 +1,8 @@
 $kind: http-request
-name: Get All
-url: http://localhost:8080/products?size=2
+url: http://localhost:8080/products?size=12&page=0&name=pc%20gamer
 method: GET
 queryParams:
-  size: "2"
+  size: "12"
+  page: "0"
+  name: pc%20gamer
 order: 1786325052799

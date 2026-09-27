@@ -1,0 +1,9 @@
+$kind: http-request
+name: All Clients(Pageable)
+url: http://localhost:8080/clients?page=3&size=2&sort=name
+method: GET
+queryParams:
+  page: "3"
+  size: "2"
+  sort: name
+order: 1727740648800715

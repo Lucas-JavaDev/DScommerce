@@ -1,0 +1,5 @@
+$kind: http-request
+name: Client by Id
+url: http://localhost:8080/clients/22
+method: DELETE
+order: 4463861376983517

@@ -1,3 +1,25 @@
+
+INSERT INTO tb_user (name, email, password) VALUES ('Alex', 'alex@gmail.com', '$2a$10$mEUk.h0p/tXJGstaO6fS1.g74Eng8m0mndhYeliPMtUKcENT8al4a');
+INSERT INTO tb_user (name, email, password) VALUES ('Maria', 'maria@gmail.com', '$2a$10$mEUk.h0p/tXJGstaO6fS1.g74Eng8m0mndhYeliPMtUKcENT8al4a');
+
+INSERT INTO tb_role (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
+
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+
+INSERT INTO tb_product (name) VALUES ('TV');
+INSERT INTO tb_product (name) VALUES ('Computer');
+
+
+
+
+
+
+
+
+
 INSERT INTO tb_category(name) VALUES ('Livros');
 INSERT INTO tb_category(name) VALUES ('Eletrônicos');
 INSERT INTO tb_category(name) VALUES ('Computadores');
@@ -69,3 +91,5 @@ INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (3, 1, 
 
 INSERT INTO tb_payment (order_id, moment) VALUES (1, TIMESTAMP WITH TIME ZONE '2022-07-25T15:00:00Z');
 INSERT INTO tb_payment (order_id, moment) VALUES (2, TIMESTAMP WITH TIME ZONE '2022-07-30T11:00:00Z');
+
+

@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/departments/1/employees
+method: GET
+order: 5000

@@ -1,6 +1,13 @@
 # Use this workspace to collaborate
 workspace:
-  id: c29a1d7e-7375-4081-aa14-f8ac4a27925a
+  id: 323cd43b-5e3b-4911-96c7-2cd4ed212ac6
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/Aula Lazy: 85e20e14-cca2-4176-8dbe-8c4a4d69fb70
+    ../postman/collections/Oauth2 JWT password: 36fc0ac0-65a8-4745-af65-ba1c4e1ccc35
 
 # All resources in the `postman/` folder are automatically registered in Local View.
 # Point to additional files outside the `postman/` folder to register them individually. Example:

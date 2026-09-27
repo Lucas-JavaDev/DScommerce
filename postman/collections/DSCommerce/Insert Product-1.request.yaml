@@ -9,6 +9,6 @@ body:
         "name": "",
         "description": "Produto muito divertido",
         "imgUrl": "https://imagens.com.br/imagem.jpg",
-        "price": 200.0
+        "price": -200.0
     }
 order: 1512560307533838

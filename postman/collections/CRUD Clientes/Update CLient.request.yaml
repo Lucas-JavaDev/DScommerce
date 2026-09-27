@@ -1,0 +1,15 @@
+$kind: http-request
+name: Update CLient
+url: http://localhost:8080/clients/1
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "name": "Joaozinho",
+        "cpf": "4444444444",
+        "income": 2500,
+        "birthDate": "1988-08-10",
+        "children": 1
+    }
+order: 4459686351791483
