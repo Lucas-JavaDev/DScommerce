@@ -1,0 +1,14 @@
+name: DScoomerce Auth
+values:
+  - key: host
+    value: 'http://localhost:8080'
+  - key: client-id
+    value: myclientid
+  - key: client-secret
+    value: myclientsecret
+  - key: username
+    value: alex@gmail.com
+  - key: password
+    value: '123456'
+  - key: token
+    value: ''
