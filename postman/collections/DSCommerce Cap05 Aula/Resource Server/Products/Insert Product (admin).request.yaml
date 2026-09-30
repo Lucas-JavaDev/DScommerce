@@ -1,14 +1,17 @@
 $kind: http-request
-name: Update Product
-url: http://localhost:8080/products/1
-method: PUT
+url: http://localhost:8080/products
+method: POST
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
 body:
   type: json
   content: |-
     {
-        "name": "Novo Produto",
+        "name": "234",
         "description": "Produto muito divertido",
         "imgUrl": "https://imagens.com.br/imagem.jpg",
         "price": 200.0
     }
-order: 4495649118014256
+order: 4498148418271563

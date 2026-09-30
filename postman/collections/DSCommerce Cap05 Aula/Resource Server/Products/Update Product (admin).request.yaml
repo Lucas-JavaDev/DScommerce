@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:8080/products/1
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "name": "Novo Produto",
+        "description": "Produto muito divertido",
+        "imgUrl": "https://imagens.com.br/imagem.jpg",
+        "price": 200.0
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 4495649118014256

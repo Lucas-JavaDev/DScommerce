@@ -11,4 +11,4 @@ values:
   - key: password
     value: '123456'
   - key: token
-    value: ''
+    secret: true

@@ -1,5 +1,0 @@
-$kind: http-request
-name: Product By Id
-url: http://localhost:8080/products/1
-method: DELETE
-order: 4498183598726476
