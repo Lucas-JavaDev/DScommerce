@@ -2,6 +2,7 @@ package com.DevSuperior.Estudo.Service;
 
 
 import com.DevSuperior.Estudo.DTO.ProductDTO;
+import com.DevSuperior.Estudo.DTO.ProductMinDTO;
 import com.DevSuperior.Estudo.Entity.Product;
 import com.DevSuperior.Estudo.Exception.DatabaseException;
 import com.DevSuperior.Estudo.Exception.ResourceNotFoundException;
@@ -32,9 +33,9 @@ public class ProductService {
         return new ProductDTO(product);
     }
 
-    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+    public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
         Page<Product> products = productRepository.searchByName(name, pageable);
-        return products.map(product -> new ProductDTO(product));
+        return products.map(product -> new ProductMinDTO(product));
     }
 
     @Transactional

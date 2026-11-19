@@ -1,6 +1,7 @@
 package com.DevSuperior.Estudo.Controller;
 
 import com.DevSuperior.Estudo.DTO.ProductDTO;
+import com.DevSuperior.Estudo.DTO.ProductMinDTO;
 import com.DevSuperior.Estudo.Service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
@@ -28,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) {
+    public ResponseEntity<Page<ProductMinDTO>> findAll(@RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) {
         return ResponseEntity.ok(productService.findAll(name, pageable));
     }
 

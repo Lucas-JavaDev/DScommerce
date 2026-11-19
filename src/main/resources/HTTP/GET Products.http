@@ -1,0 +1,1 @@
+GET http://localhost:8080/products?size=12&page=0&sort=name&name=pc%20gamer
