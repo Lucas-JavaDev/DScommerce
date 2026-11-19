@@ -1,4 +1,4 @@
 $kind: http-request
-url: http://localhost:8080/products/1
+url: http://localhost:8080/products/26
 method: GET
 order: 4146705980072724

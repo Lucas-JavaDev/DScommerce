@@ -1,8 +1,10 @@
 package com.DevSuperior.Estudo.Service;
 
 
+import com.DevSuperior.Estudo.DTO.CategoryDTO;
 import com.DevSuperior.Estudo.DTO.ProductDTO;
 import com.DevSuperior.Estudo.DTO.ProductMinDTO;
+import com.DevSuperior.Estudo.Entity.Category;
 import com.DevSuperior.Estudo.Entity.Product;
 import com.DevSuperior.Estudo.Exception.DatabaseException;
 import com.DevSuperior.Estudo.Exception.ResourceNotFoundException;
@@ -77,6 +79,13 @@ public class ProductService {
         product.setDescription(productDTO.getDescription());
         product.setPrice(productDTO.getPrice());
         product.setImgUrl(product.getImgUrl());
+
+        product.getCategories().clear();
+        for(CategoryDTO dto : productDTO.getCategories()) {
+            Category category = new Category();
+            category.setId(dto.getId());
+            product.getCategories().add(category);
+        }
         productRepository.save(product);
     }
 

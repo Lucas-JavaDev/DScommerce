@@ -1,12 +1,17 @@
 package com.DevSuperior.Estudo.DTO;
 
+import com.DevSuperior.Estudo.Entity.Category;
 import com.DevSuperior.Estudo.Entity.Product;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -28,6 +33,8 @@ public class ProductDTO {
 
     private String imgUrl;
 
+    @NotEmpty(message = "Deve conter pelo menos uma categoria")
+    private List<CategoryDTO> categories = new ArrayList<>();
 
 
     public ProductDTO(Product product) {
@@ -36,6 +43,9 @@ public class ProductDTO {
         this.description = product.getDescription();
         this.price = product.getPrice();
         this.imgUrl = product.getImgUrl();
+        for(Category category : product.getCategories()) {
+            categories.add(new CategoryDTO(category));
+        }
     }
 
 }

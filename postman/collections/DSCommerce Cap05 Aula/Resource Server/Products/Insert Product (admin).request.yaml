@@ -9,9 +9,17 @@ body:
   type: json
   content: |-
     {
-        "name": "234",
+        "name": "New Product",
         "description": "Produto muito divertido",
         "imgUrl": "https://imagens.com.br/imagem.jpg",
-        "price": 200.0
+        "price": 200.0,
+        "categories": [
+            {
+                "id": 1
+            },
+            {
+                "id": 2
+            }
+        ]
     }
 order: 4498148418271563
