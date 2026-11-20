@@ -8,7 +8,15 @@ body:
         "name": "Novo Produto",
         "description": "Produto muito divertido",
         "imgUrl": "https://imagens.com.br/imagem.jpg",
-        "price": 200.0
+        "price": 200.0,
+        "categories": [
+            {
+                "id": 3
+            },
+            {
+                "id": 2
+            }
+        ]
     }
 auth:
   type: bearer
