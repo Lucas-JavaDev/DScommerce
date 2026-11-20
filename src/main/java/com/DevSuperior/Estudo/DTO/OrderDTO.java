@@ -4,6 +4,7 @@ package com.DevSuperior.Estudo.DTO;
 import com.DevSuperior.Estudo.Entity.Enum.OrderStatus;
 import com.DevSuperior.Estudo.Entity.Order;
 import com.DevSuperior.Estudo.Entity.OrderItem;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ public class OrderDTO {
 
     private PaymentDTO payment;
 
+    @NotEmpty(message = "Deve ter pelo meno um item")
     private List<OrderItemDTO> items = new ArrayList<>();
 
     public OrderDTO(ClientDTO client, Long id, Instant moment, PaymentDTO payment, OrderStatus status) {

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{host}}/orders/"
+method: POST
+order: 2000
