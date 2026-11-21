@@ -9,16 +9,16 @@ body:
   type: json
   content: |-
     {
-        "name": "New Product",
+        "name": "",
         "description": "Produto muito divertido",
         "imgUrl": "https://imagens.com.br/imagem.jpg",
-        "price": 200.0,
+        "price": 67,
         "categories": [
             {
-                "id": 1
+                "id": 2
             },
             {
-                "id": 2
+                "id": 3
             }
         ]
     }

@@ -63,7 +63,6 @@ public class OrderService {
         for(OrderItemDTO item : orderDTO.getItems()){
             Product product = productRepository.getReferenceById(item.getProductId());
             OrderItem orderItem = new OrderItem(order, product, product.getPrice(), item.getQuantity());
-
             order.getItems().add(orderItem);
 
         }

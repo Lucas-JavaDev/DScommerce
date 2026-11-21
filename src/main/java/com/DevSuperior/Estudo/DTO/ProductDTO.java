@@ -2,10 +2,7 @@ package com.DevSuperior.Estudo.DTO;
 
 import com.DevSuperior.Estudo.Entity.Category;
 import com.DevSuperior.Estudo.Entity.Product;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,7 @@ public class ProductDTO {
 
     private Long id;
 
-    @NotBlank(message = "Campo Nulo")
+    @NotBlank(message = "Campo requerido")
     @Size(min = 3, max = 80, message = "Nome precisa conter 3-80 caracteres")
     private String name;
 
@@ -28,6 +25,7 @@ public class ProductDTO {
     @Size(min = 10, message = "Descrição precisa contar no minimo 10 caracteres")
     private String description;
 
+    @NotNull(message = "Campo requerido")
     @Positive(message = "Preço deve ser positivo")
     private Double price;
 
