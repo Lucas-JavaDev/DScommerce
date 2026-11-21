@@ -14,7 +14,7 @@ public class OrderItemDTO {
     private String name;
     private Double price;
     private Integer quantity;
-    private Double subTotal;
+    private String imgUrl;
 
 
     public OrderItemDTO(OrderItem orderItem) {
@@ -22,6 +22,7 @@ public class OrderItemDTO {
         name = orderItem.getProduct().getName();
         price = orderItem.getPrice();
         quantity = orderItem.getQuantity();
+        imgUrl = orderItem.getProduct().getImgUrl();
     }
 
 

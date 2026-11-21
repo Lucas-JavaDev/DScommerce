@@ -3,6 +3,7 @@ package com.DevSuperior.Estudo.Controller.Handlers;
 import com.DevSuperior.Estudo.DTO.CustomError;
 import com.DevSuperior.Estudo.DTO.ValidationError;
 import com.DevSuperior.Estudo.Exception.DatabaseException;
+import com.DevSuperior.Estudo.Exception.ForbiddenException;
 import com.DevSuperior.Estudo.Exception.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -42,4 +43,10 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(status).body(err);
     }
 
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<CustomError> forbiddenHandler(ForbiddenException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
+        CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.toString());
+        return ResponseEntity.status(status).body(err);
+    }
 }

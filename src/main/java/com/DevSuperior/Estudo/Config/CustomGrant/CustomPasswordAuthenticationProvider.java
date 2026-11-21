@@ -54,18 +54,9 @@ public class CustomPasswordAuthenticationProvider implements AuthenticationProvi
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-		System.out.println(">>> CUSTOM PROVIDER FOI CHAMADO <<<");
-
 		CustomPasswordAuthenticationToken customPasswordAuthenticationToken =
 				(CustomPasswordAuthenticationToken) authentication;
 
-		System.out.println("USERNAME RECEBIDO: "
-				+ customPasswordAuthenticationToken.getUsername());
-
-		System.out.println("PASSWORD RECEBIDO: "
-				+ (customPasswordAuthenticationToken.getPassword() != null
-				? "SIM"
-				: "NULL"));
 
 		OAuth2ClientAuthenticationToken clientPrincipal =
 				getAuthenticatedClientElseThrowInvalidClient(
@@ -75,8 +66,6 @@ public class CustomPasswordAuthenticationProvider implements AuthenticationProvi
 		RegisteredClient registeredClient =
 				clientPrincipal.getRegisteredClient();
 
-		System.out.println("CLIENTE: " + registeredClient.getClientId());
-
 		username = customPasswordAuthenticationToken.getUsername();
 		password = customPasswordAuthenticationToken.getPassword();
 
@@ -84,27 +73,19 @@ public class CustomPasswordAuthenticationProvider implements AuthenticationProvi
 
 		try {
 			user = userDetailsService.loadUserByUsername(username);
-			System.out.println("USUARIO ENCONTRADO: " + user.getUsername());
 		}
 		catch (UsernameNotFoundException e) {
-			System.out.println(">>> USUARIO NÃO ENCONTRADO <<<");
 			throw new OAuth2AuthenticationException("Invalid credentials");
 		}
 
 		boolean passwordMatches =
 				passwordEncoder.matches(password, user.getPassword());
 
-		System.out.println("PASSWORD MATCH: " + passwordMatches);
-
-		System.out.println("USERNAME MATCH: "
-				+ user.getUsername().equals(username));
 
 		if (!passwordMatches || !user.getUsername().equals(username)) {
-			System.out.println(">>> CREDENCIAIS INVALIDAS <<<");
 			throw new OAuth2AuthenticationException("Invalid credentials");
 		}
 
-		System.out.println(">>> CREDENCIAIS VALIDAS <<<");
 		
 		authorizedScopes = user.getAuthorities().stream()
 				.map(scope -> scope.getAuthority())
